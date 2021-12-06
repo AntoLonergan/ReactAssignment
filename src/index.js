@@ -10,7 +10,7 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage"; // NEW
 import AddMovieReviewPage from './pages/addMovieReviewPage';
-import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
+import UpcomingMoviesPage from "./pages/UpcomingMoviesPage";
 import PopularMovies from "./pages/popularMovies";
 import TopMoviesPage from "./pages/topMoviesPage";
 import CurrentlyPage from "./pages/currently";
