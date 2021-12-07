@@ -7,6 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import HomeIcon from "@material-ui/icons/Home";
 import { withRouter } from "react-router-dom";
+import HelpIcon from '@material-ui/icons/Help';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,6 +35,9 @@ const MovieHeader = ( { movie, history}) => {
         {movie.title}
         <a href={movie.homepage}>
           <HomeIcon color="primary" />
+        </a>
+        <a href={`https://www.boxofficemojo.com/title/${movie.imdb_id}`}>
+        <HelpIcon color="primary" />
         </a>
         <br />
         <span className={classes.tagLine}>{`   "${movie.tagline}"`} </span>
