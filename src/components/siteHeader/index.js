@@ -34,6 +34,7 @@ const SiteHeader = ( { history }) => {
     { label: "Popular Movies", path: "/movies/popular" },
     { label: "Top Rated", path: "/movies/toprated" },
     { label: "Currently In Cinema", path: "/movies/currently" },
+    { label: "Latest Release", path: "/movies/latest" },
   ];
 
   const handleMenuSelect = (pageURL) => {
@@ -52,7 +53,7 @@ const SiteHeader = ( { history }) => {
             Movies App
           </Typography>
           <Typography variant="h6" className={classes.title}>
-            Your door to Entertainment
+            Your Door to Entertainment
           </Typography>
             {isMobile ? (
               <>
