@@ -14,14 +14,14 @@ import MovieReviews from "../movieReviews"
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "left",
     flexWrap: "wrap",
     listStyle: "none",
-    padding: theme.spacing(1.5),
+    padding: theme.spacing(3),
     margin: 0,
   },
   chip: {
-    margin: theme.spacing(0.5),
+    margin: theme.spacing(.5),
   },
   fab: {
     position: "fixed",
@@ -37,7 +37,7 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
   return (
     <>
       <Typography variant="h5" component="h3">
-        Overview
+      Overview
       </Typography>
 
       <Typography variant="h6" component="p">
@@ -54,18 +54,6 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
           </li>
         ))}
       </Paper>
-      <Paper component="ul" className={classes.root}>
-        <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
-        <Chip
-          icon={<MonetizationIcon />}
-          label={`${movie.revenue.toLocaleString()}`}
-        />
-        <Chip
-          icon={<StarRate />}
-          label={`${movie.vote_average} (${movie.vote_count}`}
-        />
-        <Chip label={`Released: ${movie.release_date}`} />
-      </Paper>
        <Paper component="ul" className={classes.root}>
         <li>
           <Chip label="Countries" className={classes.chip} color="primary" />
@@ -76,6 +64,52 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
           </li>
         ))}
       </Paper>
+      <Paper component="ul" className={classes.root}>
+        <li>
+          <Chip label="Production Companies" className={classes.chip} color="primary" />
+        </li>
+        {movie.production_companies.map((g) => (
+          <li key={g.name}>
+            <Chip label={g.name} className={classes.chip} />
+          </li>
+        ))}
+      </Paper>
+      <Paper component="ul" className={classes.root}>
+        <li>
+          <Chip label="Languages Available" className={classes.chip} color="primary" />
+        </li>
+        {movie.spoken_languages.map((g) => (
+          <li key={g.name}>
+            <Chip label={g.name} className={classes.chip} />
+          </li>
+        ))}
+      </Paper>
+      <Paper component="ul" className={classes.root}>
+      <li>
+          <Chip label="Budget" className={classes.chip} color="primary" />
+        </li>
+            <Chip
+          icon={<MonetizationIcon />}
+          label={`${movie.budget.toLocaleString()}`}
+        />
+      <li>
+          <Chip label="Revenue" className={classes.chip} color="primary" />
+        </li>
+            <Chip
+          icon={<MonetizationIcon />}
+          label={`${movie.revenue.toLocaleString()}`}
+        />
+      </Paper>
+      <Paper component="ul" className={classes.root}>
+        <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
+        <Chip
+          icon={<StarRate />}
+          label={`${movie.vote_average} (${movie.vote_count}`}
+        />
+        <Chip label={`Released: ${movie.release_date}`} />
+      </Paper>
+
+
 
   <Fab
   color="secondary"
