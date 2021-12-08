@@ -166,7 +166,7 @@ export const getMovie = (args) => {
             'Content-Type': 'application/json'
         },
         method: 'post',
-        body: JSON.stringify({ username: username, password: password,request_token: request_token })
+        body: JSON.stringify({ username: username, password: password })
     }).then(res => res.json())
 };
 
