@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { AuthContext } from '../contexts/authContext';
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
 
 const SignUpPage = props => {
   const context = useContext(AuthContext)
@@ -8,6 +10,17 @@ const SignUpPage = props => {
   const [password, setPassword] = useState("");
   const [passwordAgain, setPasswordAgain] = useState("");
   const [registered, setRegistered] = useState(false);
+  
+  
+  
+
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      maxWidth: 345,
+      backgroundColor: "rgb(204, 204, 0)",
+    },
+    media: { height: 300 },
+  }));
 
   const register = () => {
     if (password.length > 0 && password === passwordAgain) {
@@ -17,14 +30,16 @@ const SignUpPage = props => {
   }
 
   const { from } = props.location.state || { from: { pathname: "/" } };
+  const classes = useStyles();
+
 
   if (registered === true) {
     return <Redirect to="./login" />;
   }
 
   return (
-    <>
-      <h2>SignUp page</h2>
+    <Card className={classes.root} variant="outlined">
+      <h2>Sign Up Now!</h2>
       <p>You must register a username and password to log in </p>
       <input value={userName} placeholder="user name" onChange={e => {
         setUserName(e.target.value);
@@ -37,7 +52,7 @@ const SignUpPage = props => {
       }}></input><br />
       {/* Login web form  */}
       <button onClick={register}>Register</button>
-    </>
+    </Card>
   );
 };
 
