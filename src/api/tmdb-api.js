@@ -159,24 +159,4 @@ export const getMovie = (args) => {
       throw error
    });
   };
-
-  export const login = (username, password) => {
-    return fetch(`https://api.themoviedb.org/3/authentication/token/validate_with_login?api_key=${process.env.REACT_APP_TMDB_KEY}`, {
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        method: 'post',
-        body: JSON.stringify({ username: username, password: password })
-    }).then(res => res.json())
-};
-
-export const signup = (username, password) => {
-    return fetch(`https://api.themoviedb.org/3/authentication/session/new?api_key=${process.env.REACT_APP_TMDB_KEY}`, {
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        method: 'post',
-        body: JSON.stringify({ username: username, password: password })
-    }).then(res => res.json())
-};
   
