@@ -143,19 +143,28 @@ export const getMovie = (args) => {
     });
   };
 
-  export const getSocials = (args) => {
-    // console.log(args)
-    const [, idPart] = args.queryKey;
-    const { id } = idPart;
+  export const getSocials = (id) => {
     return fetch(
-      `https://api.themoviedb.org/3/movie/${id}/external_ids?api_key=${process.env.REACT_APP_TMDB_KEY}`
-    ).then((response) => {
-      if (!response.ok) {
-        throw new Error(response.json().message);
-      }
-      return response.json();
-    })
-    .catch((error) => {
-      throw error
-   });
+      `https://api.themoviedb.org/3/movie/${id}/external_ids?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1`
+    )
+      .then((res) => res.json())
+      .then((json) => {
+        // console.log(json.results);
+        return json.results;
+      });
   };
+    
+
+  export const getSimilarMovies = (id) => {
+    return fetch(
+      `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${process.env.REACT_APP_TMDB_KEY}&page=1`
+      ).then((response) => {
+        if (!response.ok) {
+          throw new Error(response.json().message);
+        }
+        return response.json();
+      })
+      .catch((error) => {
+         throw error
+      });
+    };
