@@ -30,7 +30,7 @@ I can get and show popular movies, upcoming movies, movies currently in cinema, 
 
 ## Setup requirements.
 
-Open an intergrated terminal of the movies-api and run npm start to start it up ffor use with authentication.
+Open an intergrated terminal of the movies-api and run npm start to start it up for use with authentication.
 
 ## API endpoints.
 
@@ -51,7 +51,7 @@ e.g.
 
 ![](./images/storybook.png)
 
-The cricled storybooks components have been modifed in some way.
+The circled storybooks components have been modifed in some way.
 
 ### UI Design.
 
